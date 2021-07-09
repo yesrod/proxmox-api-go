@@ -346,12 +346,12 @@ func (config ConfigLxc) UpdateConfig(vmr *VmRef, client *Client) (err error) {
 	// also, error "500 unable to modify read-only option: 'unprivileged'"
 	delete(paramMap, "unprivileged")
 
-	_, err = client.UpdateVMHA(vmr, config.HaState)
+	_, err = client.SetLxcConfig(vmr, paramMap)
 	if err != nil {
 		return err
 	}
 
-	_, err = client.SetLxcConfig(vmr, paramMap)
+	_, err = client.UpdateVMHA(vmr, config.HaState)
 	return err
 }
 
