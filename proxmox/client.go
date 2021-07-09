@@ -163,7 +163,7 @@ func (c *Client) GetVmInfo(vmr *VmRef) (vmInfo map[string]interface{}, err error
 			return
 		}
 	}
-	return nil, errors.New(fmt.Sprintf("Vm '%d' not found", vmr.vmId))
+	return nil, errors.New(fmt.Sprintf("Vm '%d' not found by ID", vmr.vmId))
 }
 
 func (c *Client) GetVmRefByName(vmName string) (vmr *VmRef, err error) {
@@ -185,7 +185,7 @@ func (c *Client) GetVmRefByName(vmName string) (vmr *VmRef, err error) {
 			return
 		}
 	}
-	return nil, errors.New(fmt.Sprintf("Vm '%s' not found", vmName))
+	return nil, errors.New(fmt.Sprintf("Vm '%s' not found by name", vmName))
 }
 
 func (c *Client) GetVmState(vmr *VmRef) (vmState map[string]interface{}, err error) {
